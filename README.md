@@ -31,7 +31,7 @@ To use this input transformer we must register the module as an input transforme
 
 First, add infer_underscore.py to the list of files to run upon ipython startup. In `ipython_config.py` add the following line:
 ```
-c.InteractiveShellApp.exec_files = ["FULL//PATH//TO//infer_underscore//infer_underscore.py"]
+c.InteractiveShellApp.exec_files = ["FULL//PATH//TO//ipython_infer_underscore//infer_underscore.py"]
 ```
 
 Next add the following python code lines below that to execute upon ipython startup. If you already have some code to execute, simply add these lines at the end of the list.
@@ -39,7 +39,7 @@ Next add the following python code lines below that to execute upon ipython star
 c.InteractiveShellApp.exec_lines = [
     # Automatically infer underscore when missing
     'import sys',
-    'sys.path.append("PATH//TO//infer_underscore")',
+    'sys.path.append("PATH//TO//ipython_infer_underscore")',
     'from infer_underscore import *',
     'ip = get_ipython()',
     'ip.input_transformers_cleanup.append(infer_underscore)'
