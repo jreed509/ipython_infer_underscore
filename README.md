@@ -7,22 +7,22 @@ A special case is if a numeric character immediately follows a period (`.`). In 
 
 ## Examples
 ```
-5.0
+In[1]: 5.0
 Out[1]: 5.0
 
-/2
+In[2]: /2
 Out[2]: 2.5
 
-+1
+In[3]: +1
 Out[3]: 3.5
 ```
 
 This also works with subclass operators:
 ```
-12.4*u.mm
+In[1]: 12.4*u.mm
 Out[1]: 12.4 <Unit('millimeter')>
 
-.to(u.inch)
+In[2]: .to(u.inch)
 Out[2]: 0.48818897637795283 <Unit('inch')>
 ```
 
@@ -31,7 +31,7 @@ To use this input transformer we must register the module as an input transforme
 
 First, add infer_underscore.py to the list of files to run upon ipython startup. In `ipython_config.py` add the following line:
 ```
-c.InteractiveShellApp.exec_files = ["FULL//PATH//TO//infer_underscore//infer_underscore.py"]
+c.InteractiveShellApp.exec_files = ["FULL//PATH//TO//ipython_infer_underscore//infer_underscore.py"]
 ```
 
 Next add the following python code lines below that to execute upon ipython startup. If you already have some code to execute, simply add these lines at the end of the list.
@@ -39,7 +39,7 @@ Next add the following python code lines below that to execute upon ipython star
 c.InteractiveShellApp.exec_lines = [
     # Automatically infer underscore when missing
     'import sys',
-    'sys.path.append("PATH//TO//infer_underscore")',
+    'sys.path.append("PATH//TO//ipython_infer_underscore")',
     'from infer_underscore import *',
     'ip = get_ipython()',
     'ip.input_transformers_cleanup.append(infer_underscore)'
