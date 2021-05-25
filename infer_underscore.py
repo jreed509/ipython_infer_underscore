@@ -6,7 +6,11 @@ def infer_underscore(lines):
         lines = [lines]
     for line in lines:
         first_char = line[0]
-        second_char = line[1]
+        try:
+            second_char = line[1] 
+        except IndexError:
+            second_char = ""
+
         if first_char in operation_chars:
             if first_char == ".":
                 if second_char in numeric_chars:
